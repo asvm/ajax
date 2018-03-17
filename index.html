@@ -1,0 +1,23 @@
+<!-- Program to upload a file without refreshing the browser using AJAX call -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajax Image Upload</title>
+</head>
+
+<script>
+  function PreviewImage() {
+     var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("photoimg").files[0]);
+     oFReader.onload = function (oFREvent) {
+          document.getElementById("preview").src = oFREvent.target.result;
+        };
+    };
+</script>
+
+<body>
+  <h2 align="center">Upload File using Ajax</h2>
+  Upload your image <input type="file" name="photoimg" id="photoimg" onchange="PreviewImage();" /><br>
+  <img id="preview" style="width: auto; height: auto;" />
+</body>
+</html>
